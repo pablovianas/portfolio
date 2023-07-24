@@ -18,7 +18,7 @@ export const ProjectList = styled("section")`
         gap: 30px;
     }
     .project {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid ${({ theme }) => theme.accent};
     }
     .project-image {
         position: relative;
@@ -36,20 +36,20 @@ export const ProjectList = styled("section")`
         transform: translate(50%, -250%);
     }
     .project-image:hover {
-        opacity: 0.7;
-        background: #000;
+       
+        background: #fefefe;
     }
     .project-links a {
         font-family: Space Grotesk;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
-        line-height: 26px; /* 162.5% */
+        line-height: 26px; 
         letter-spacing: 2.286px;
-        border-bottom: 2px solid #4ee1a0;
+        border-bottom: 2px solid ${({ theme }) => theme.mainText};
         text-transform: uppercase;
         &:hover {
-            color: #4ee1a0;
+            color: ${({ theme }) => theme.link};
             cursor: pointer;
         }
     }

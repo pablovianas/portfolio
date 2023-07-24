@@ -16,15 +16,16 @@ export const Informations = styled("section")`
         margin-bottom: 45px;
     }
     span {
-        border-bottom: 6px solid #4ee1a0;
+        color: ${({ theme }) => theme.accent};
         &:hover {
-            color: #4ee1a0;
+            color: ${({ theme }) => theme.link};
+            border-bottom: 6px solid ${({ theme }) => theme.link};
             cursor: pointer;
         }
     }
 
     p {
-        color: var(--grey, #d9d9d9);
+        color: ${({ theme }) => theme.accent};
         font-family: "Space Grotesk";
         font-size: 18px;
         font-style: normal;
@@ -41,11 +42,12 @@ export const Informations = styled("section")`
         font-weight: 700;
         line-height: 26px; /* 162.5% */
         letter-spacing: 2.286px;
-        border-bottom: 2px solid #4ee1a0;
-        text-transform: uppercase;
 
+        text-transform: uppercase;
+        color: ${({ theme }) => theme.accent};
         &:hover {
-            color: #4ee1a0;
+            color: ${({ theme }) => theme.link};
+            border-bottom: 2px solid ${({ theme }) => theme.link};
         }
     }
     @media (max-width: 768px) {

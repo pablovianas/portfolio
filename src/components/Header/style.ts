@@ -11,8 +11,16 @@ export const Header = styled("header")`
         font-family: "Space Grotesk";
         font-weight: 700;
         letter-spacing: -0.444px;
+
         &:hover {
-            color: #4ee1a0;
+            color: ${({ theme }) => theme.link};
+            cursor: pointer;
+        }
+    }
+    a {
+        color: ${({ theme }) => theme.accent};
+        &:hover {
+            color: ${({ theme }) => theme.link};
             cursor: pointer;
         }
     }
@@ -32,6 +40,19 @@ export const Header = styled("header")`
         font-family: "Space Grotesk";
         font-size: 20px;
         border-radius: 10px;
+    }
+    select {
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: ${({ theme }) => theme.secondaryBackground};
+        color: ${({ theme }) => theme.accent};
+        font-size: 20px;
+        &:focus {
+            outline: none;
+        }
+
     }
 
     @media (width <= 430px) {

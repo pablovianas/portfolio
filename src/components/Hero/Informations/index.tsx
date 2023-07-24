@@ -12,7 +12,7 @@ export const Informations = () => {
                 front-end developer with a passion for creating user-friendly
                 and engaging web experiences.
             </p>
-            <Link href='#'>Contact me</Link> 
+            <Link href='https://www.linkedin.com/in/pablo-viana-santos/' target="_blank" rel='noreferrer noopener'>Contact me</Link> 
         </S.Informations>
     );
 }
