@@ -36,7 +36,7 @@ export const Header = () => {
                     handleThemeChange(event.target.value)
                 }
             >
-                <option value="" disabled selected>
+                <option value="" disabled defaultValue={"default"}>
                     Pick a color{" "}
                 </option>
                 <option value="light">Light</option>

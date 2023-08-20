@@ -23,6 +23,13 @@ export const Skills = styled("section")`
         font-family: "Space Grotesk";
         font-size: 48px;
         letter-spacing: -1.5px;
+        border: 3px solid transparent;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    li:hover{
+        border: 3px solid ${({ theme }) => theme.accent};
+        cursor: pointer;
     }
     @media (max-width: 768px) {
         ul {

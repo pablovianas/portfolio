@@ -58,6 +58,7 @@ export const Informations = styled("section")`
         p {
             font-size: 23px;
         }
+        align-items: center;
     }
     @media (max-width: 430px) {
         h1 {
