@@ -8,7 +8,7 @@ export const Hero = () => {
     return (
         <S.Hero>
             <Informations />
-            <Image src={profilePicture} />
+            <Image src={profilePicture} alt="Picture of me smiling"/>
         </S.Hero>
     );
 }
