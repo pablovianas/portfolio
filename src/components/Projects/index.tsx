@@ -14,12 +14,12 @@ export const ProjectList = () => {
                     return (
                         <li key={project.name} className="project">
                             <div className="project-image">
-                                <Image src={project.image} alt={project.name}/>
+                                <Image src={project.image} alt={project.name} />
                                 <div className="project-links">
-                                    <Link href={project.deploy}>
+                                    <Link href={project.deploy} aria-label="Project deploy link" title="Project deploy link" target="_blank"rel="noreferrer noopener">
                                         Project
                                     </Link>
-                                    <Link href={project.repository}>
+                                    <Link href={project.repository} aria-label="Link to the repository on Github" title="Link to the repository on Github" target="_blank" rel="noreferrer noopener">
                                         Code
                                     </Link>
                                 </div>

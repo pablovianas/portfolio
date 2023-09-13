@@ -16,6 +16,8 @@ export const Header = () => {
                             href="https://github.com/pablovianas/"
                             target="_blank"
                             rel="noreferrer noopener"
+                            aria-label="Github Profile Link"
+                            title="Github Profile Link"
                         >
                             <FaSquareGithub />
                         </Link>
@@ -25,6 +27,8 @@ export const Header = () => {
                             href="https://www.linkedin.com/in/pablo-viana-santos/"
                             target="_blank"
                             rel="noreferrer noopener"
+                            aria-label="Linkedin Profile Link"
+                            title="Linkedin Profile Link"
                         >
                             <FaLinkedinIn />
                         </Link>
@@ -35,6 +39,7 @@ export const Header = () => {
                 onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
                     handleThemeChange(event.target.value)
                 }
+                title="Select a color"
             >
                 <option value="" disabled defaultValue={"default"}>
                     Pick a color{" "}
