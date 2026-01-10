@@ -1,193 +1,77 @@
+import {
+    SiHtml5, SiCss3, SiJavascript, SiTypescript, SiPython,
+    SiReact, SiNextdotjs, SiStyledcomponents, SiTailwindcss, SiBootstrap,
+    SiReactquery, SiReactrouter, SiReacthookform, SiVite, SiVitest,
+    SiNodedotjs, SiExpress, SiFastapi, SiJsonwebtokens,
+    SiMysql, SiPostgresql, SiSqlite, SiPrisma,
+    SiGit, SiGithub, SiGitlab, SiAzuredevops, SiDocker, SiGrafana,
+    SiVisualstudiocode, SiFigma, SiPostman, SiInsomnia, SiNpm, SiYarn,
+    SiJest, SiCypress, SiPlaywright
+} from 'react-icons/si';
+
 export interface Skill {
-  name: string;
-  icon: string;
-  category: 'languages' | 'frontend' | 'backend' | 'database' | 'tools';
-  color?: string;
+    name: string;
+    icon: any;
+    category: 'languages' | 'frontend' | 'backend' | 'database' | 'devops' | 'tools';
 }
 
 export const skills: Skill[] = [
-  {
-    name: 'HTML5',
-    icon: 'html5',
-    category: 'languages',
-    color: '#E34F26'
-  },
-  {
-    name: 'CSS3',
-    icon: 'css3',
-    category: 'languages',
-    color: '#1572B6'
-  },
-  {
-    name: 'JavaScript',
-    icon: 'javascript',
-    category: 'languages',
-    color: '#F7DF1E'
-  },
-  {
-    name: 'TypeScript',
-    icon: 'typescript',
-    category: 'languages',
-    color: '#3178C6'
-  },
-  {
-    name: 'Python',
-    icon: 'python',
-    category: 'languages',
-    color: '#3670A0'
-  },
-  {
-    name: 'React',
-    icon: 'react',
-    category: 'frontend',
-    color: '#61DAFB'
-  },
-  {
-    name: 'Next.js',
-    icon: 'nextdotjs',
-    category: 'frontend',
-    color: '#000000'
-  },
-  {
-    name: 'Styled Components',
-    icon: 'styledcomponents',
-    category: 'frontend',
-    color: '#DB7093'
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: 'tailwindcss',
-    category: 'frontend',
-    color: '#06B6D4'
-  },
-  {
-    name: 'Bootstrap',
-    icon: 'bootstrap',
-    category: 'frontend',
-    color: '#7952B3'
-  },
-  {
-    name: 'React Query',
-    icon: 'reactquery',
-    category: 'frontend',
-    color: '#FF4154'
-  },
-  {
-    name: 'React Router',
-    icon: 'reactrouter',
-    category: 'frontend',
-    color: '#CA4245'
-  },
-  {
-    name: 'React Hook Form',
-    icon: 'reacthookform',
-    category: 'frontend',
-    color: '#EC5990'
-  },
-  {
-    name: 'Node.js',
-    icon: 'nodedotjs',
-    category: 'backend',
-    color: '#339933'
-  },
-  {
-    name: 'Express.js',
-    icon: 'express',
-    category: 'backend',
-    color: '#404d59'
-  },
-  {
-    name: 'JWT',
-    icon: 'jwt',
-    category: 'backend',
-    color: '#000000'
-  },
-  {
-    name: 'SQLite',
-    icon: 'sqlite',
-    category: 'database',
-    color: '#003B57'
-  },
-  {
-    name: 'MySQL',
-    icon: 'mysql',
-    category: 'database',
-    color: '#4479A1'
-  },
-  {
-    name: 'PostgreSQL',
-    icon: 'postgresql',
-    category: 'database',
-    color: '#4169E1'
-  },
-  {
-    name: 'Git',
-    icon: 'git',
-    category: 'tools',
-    color: '#F05033'
-  },
-  {
-    name: 'GitHub',
-    icon: 'github',
-    category: 'tools',
-    color: '#181717'
-  },
-  {
-    name: 'VS Code',
-    icon: 'vscode',
-    category: 'tools',
-    color: '#0078d7'
-  },
-  {
-    name: 'Figma',
-    icon: 'figma',
-    category: 'tools',
-    color: '#F24E1E'
-  },
-  {
-    name: 'Vite',
-    icon: 'vite',
-    category: 'tools',
-    color: '#646CFF'
-  },
-  {
-    name: 'npm',
-    icon: 'npm',
-    category: 'tools',
-    color: '#CB3837'
-  },
-  {
-    name: 'Yarn',
-    icon: 'yarn',
-    category: 'tools',
-    color: '#2C8EBB'
-  },
-  {
-    name: 'Postman',
-    icon: 'postman',
-    category: 'tools',
-    color: '#FF6C37'
-  },
-  {
-    name: 'Insomnia',
-    icon: 'insomnia',
-    category: 'tools',
-    color: '#5849BE'
-  }
+    { name: 'HTML5', icon: SiHtml5, category: 'languages' },
+    { name: 'CSS3', icon: SiCss3, category: 'languages' },
+    { name: 'JavaScript', icon: SiJavascript, category: 'languages' },
+    { name: 'TypeScript', icon: SiTypescript, category: 'languages' },
+    { name: 'Python', icon: SiPython, category: 'languages' },
+
+    { name: 'React', icon: SiReact, category: 'frontend' },
+    { name: 'Next.js', icon: SiNextdotjs, category: 'frontend' },
+    { name: 'Styled Components', icon: SiStyledcomponents, category: 'frontend' },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, category: 'frontend' },
+    { name: 'Bootstrap', icon: SiBootstrap, category: 'frontend' },
+    { name: 'React Query', icon: SiReactquery, category: 'frontend' },
+    { name: 'React Router', icon: SiReactrouter, category: 'frontend' },
+    { name: 'React Hook Form', icon: SiReacthookform, category: 'frontend' },
+    { name: 'Vite', icon: SiVite, category: 'frontend' },
+    { name: 'Vitest', icon: SiVitest, category: 'frontend' },
+
+    { name: 'Node.js', icon: SiNodedotjs, category: 'backend' },
+    { name: 'Express', icon: SiExpress, category: 'backend' },
+    { name: 'FastAPI', icon: SiFastapi, category: 'backend' },
+    { name: 'JWT', icon: SiJsonwebtokens, category: 'backend' },
+
+    { name: 'MySQL', icon: SiMysql, category: 'database' },
+    { name: 'PostgreSQL', icon: SiPostgresql, category: 'database' },
+    { name: 'SQLite', icon: SiSqlite, category: 'database' },
+    { name: 'Prisma', icon: SiPrisma, category: 'database' },
+
+    { name: 'Git', icon: SiGit, category: 'devops' },
+    { name: 'GitHub', icon: SiGithub, category: 'devops' },
+    { name: 'GitLab', icon: SiGitlab, category: 'devops' },
+    { name: 'Azure DevOps', icon: SiAzuredevops, category: 'devops' },
+    { name: 'Docker', icon: SiDocker, category: 'devops' },
+    { name: 'Grafana', icon: SiGrafana, category: 'devops' },
+
+    { name: 'VS Code', icon: SiVisualstudiocode, category: 'tools' },
+    { name: 'Figma', icon: SiFigma, category: 'tools' },
+    { name: 'Postman', icon: SiPostman, category: 'tools' },
+    { name: 'Insomnia', icon: SiInsomnia, category: 'tools' },
+    { name: 'npm', icon: SiNpm, category: 'tools' },
+    { name: 'Yarn', icon: SiYarn, category: 'tools' },
+    { name: 'Jest', icon: SiJest, category: 'tools' },
+    { name: 'Cypress', icon: SiCypress, category: 'tools' },
+    { name: 'Playwright', icon: SiPlaywright, category: 'tools' },
 ];
 
 export const skillCategories = {
-  languages: 'Languages',
-  frontend: 'Frontend',
-  backend: 'Backend',
-  database: 'Database',
-  tools: 'Tools & DevOps'
-} as const;
-
-export const getSkillsByCategory = (category: Skill['category']) => {
-  return skills.filter(skill => skill.category === category);
+    languages: 'Linguagens',
+    frontend: 'Frontend',
+    backend: 'Backend',
+    database: 'Banco de Dados',
+    devops: 'DevOps & Cloud',
+    tools: 'Ferramentas'
 };
 
-export const getAllCategories = () => {
-  return Object.keys(skillCategories) as Array<keyof typeof skillCategories>;
-};
+export const getSkillsByCategory = (category: Skill['category']) =>
+    skills.filter(skill => skill.category === category);
+
+export const getAllCategories = () =>
+    Object.keys(skillCategories) as Skill['category'][];
