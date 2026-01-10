@@ -12,14 +12,16 @@ export const Header = styled.header<{ $isScrolled: boolean }>`
   ${({ $isScrolled }) => $isScrolled && `
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    background: ${document.documentElement.getAttribute('data-theme') === 'dark' 
-      ? 'rgba(10, 10, 10, 0.8)' 
-      : 'rgba(255, 255, 255, 0.8)'};
-    border-bottom: 1px solid ${document.documentElement.getAttribute('data-theme') === 'dark'
-      ? '#27272a'
-      : '#e4e4e7'};
+    background: rgba(10, 10, 10, 0.8);
+    border-bottom: 1px solid var(--border-primary);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   `}
+
+  html[data-theme='light'] & {
+    ${({ $isScrolled }) => $isScrolled && `
+      background: rgba(255, 255, 255, 0.8);
+    `}
+  }
 `;
 
 export const Container = styled.div`
@@ -46,10 +48,7 @@ export const Logo = styled(motion.button)`
   cursor: pointer;
   background: none;
   border: none;
-  color: ${() => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? '#e4e4e7' : '#52525b';
-  }};
+  color: var(--text-primary);
 
   .accent {
     background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
@@ -65,14 +64,8 @@ export const Nav = styled.nav<{ $isOpen: boolean }>`
     top: 5rem;
     left: 0;
     right: 0;
-    background: ${() => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      return isDark ? '#0a0a0a' : '#ffffff';
-    }};
-    border-bottom: 1px solid ${() => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      return isDark ? '#27272a' : '#e4e4e7';
-    }};
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-primary);
     padding: 2rem 1.5rem;
     transform: ${({ $isOpen }) => $isOpen ? 'translateY(0)' : 'translateY(-100%)'};
     opacity: ${({ $isOpen }) => $isOpen ? '1' : '0'};
@@ -96,10 +89,7 @@ export const NavLink = styled.button`
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: ${() => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? '#a1a1aa' : '#52525b';
-  }};
+  color: var(--text-secondary);
   cursor: pointer;
   background: none;
   border: none;
@@ -118,10 +108,7 @@ export const NavLink = styled.button`
   }
 
   &:hover {
-    color: ${() => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      return isDark ? '#ffffff' : '#9494a3';
-    }};
+    color: var(--text-primary);
 
     &::after {
       width: 100%;
@@ -151,10 +138,7 @@ export const SocialLink = styled(motion.a)`
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  color: ${() => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? '#a1a1aa' : '#52525b';
-  }};
+  color: var(--text-secondary);
   transition: color 150ms cubic-bezier(0.16, 1, 0.3, 1);
 
   svg {
@@ -163,10 +147,7 @@ export const SocialLink = styled(motion.a)`
   }
 
   &:hover {
-    color: ${() => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      return isDark ? '#3b82f6' : '#2563eb';
-    }};
+    color: var(--accent-primary);
   }
 `;
 
@@ -176,10 +157,7 @@ export const MobileMenuButton = styled(motion.button)`
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  color: ${() => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? '#e4e4e7' : '#9494a3';
-  }};
+  color: var(--text-primary);
   background: none;
   border: none;
   cursor: pointer;

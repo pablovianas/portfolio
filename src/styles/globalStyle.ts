@@ -21,13 +21,39 @@ export const GlobalStyle = createGlobalStyle<{ $isDark: boolean }>`
     scroll-behavior: smooth;
   }
 
+  html[data-theme='dark'] {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #18181b;
+    --bg-tertiary: #27272a;
+    --text-primary: #e4e4e7;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #71717a;
+    --border-primary: #27272a;
+    --border-secondary: #3f3f46;
+    --accent-primary: #3b82f6;
+    --accent-secondary: #8b5cf6;
+  }
+
+  html[data-theme='light'] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f4f4f5;
+    --bg-tertiary: #e4e4e7;
+    --text-primary: #18181b;
+    --text-secondary: #52525b;
+    --text-tertiary: #71717a;
+    --border-primary: #e4e4e7;
+    --border-secondary: #d4d4d8;
+    --accent-primary: #2563eb;
+    --accent-secondary: #7c3aed;
+  }
+
   body {
     min-height: 100vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    color: ${({ $isDark }) => ($isDark ? '#e4e4e7' : '#18181b')};
-    background-color: ${({ $isDark }) => ($isDark ? '#0a0a0a' : '#ffffff')};
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
     overflow-x: hidden;
   }
 
@@ -40,11 +66,11 @@ export const GlobalStyle = createGlobalStyle<{ $isDark: boolean }>`
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
-    color: ${({ $isDark }) => ($isDark ? '#e4e4e7' : '#18181b')};
+    color: var(--text-primary);
   }
 
   p {
-    color: ${({ $isDark }) => ($isDark ? '#a1a1aa' : '#52525b')};
+    color: var(--text-secondary);
   }
 
   a {
@@ -71,12 +97,12 @@ export const GlobalStyle = createGlobalStyle<{ $isDark: boolean }>`
   }
 
   ::selection {
-    background-color: ${({ $isDark }) => ($isDark ? '#3b82f6' : '#2563eb')};
+    background-color: var(--accent-primary);
     color: #ffffff;
   }
 
   :focus-visible {
-    outline: 2px solid ${({ $isDark }) => ($isDark ? '#3b82f6' : '#2563eb')};
+    outline: 2px solid var(--accent-primary);
     outline-offset: 2px;
   }
 

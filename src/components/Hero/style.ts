@@ -16,13 +16,14 @@ export const HeroSection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark
-            ? 'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)'
-            : 'radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%)';
-    }};
+    background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), 
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
     pointer-events: none;
+  }
+
+  html[data-theme='light'] &::before {
+    background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%), 
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
   }
 `;
 
@@ -59,10 +60,7 @@ export const Greeting = styled.span`
   font-family: 'Inter', sans-serif;
   font-size: 1.125rem;
   font-weight: 500;
-  color: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#a1a1aa' : '#71717a';
-    }};
+  color: var(--text-secondary);
   letter-spacing: 0.05em;
 `;
 
@@ -71,18 +69,10 @@ export const Name = styled.h1`
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.1;
-  color: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#f4f4f5' : '#18181b';
-    }};
+  color: var(--text-primary);
   margin: 0;
   
-  background: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark
-            ? 'linear-gradient(135deg, #f4f4f5 0%, #a1a1aa 100%)'
-            : 'linear-gradient(135deg, #18181b 0%, #52525b 100%)';
-    }};
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -105,10 +95,7 @@ export const Bio = styled.p`
   font-family: 'Inter', sans-serif;
   font-size: 1.125rem;
   line-height: 1.7;
-  color: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#a1a1aa' : '#71717a';
-    }};
+  color: var(--text-secondary);
   margin: 0;
   max-width: 600px;
 `;
@@ -150,15 +137,9 @@ export const SecondaryButton = styled.button`
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#e4e4e7' : '#18181b';
-    }};
+  color: var(--text-primary);
   background: transparent;
-  border: 2px solid ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#3f3f46' : '#e4e4e7';
-    }};
+  border: 2px solid var(--border-secondary);
   border-radius: 0.75rem;
   cursor: pointer;
   transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -181,23 +162,14 @@ export const SocialLink = styled.a`
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  color: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#a1a1aa' : '#71717a';
-    }};
-  background: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#18181b' : '#f4f4f5';
-    }};
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
   border-radius: 0.75rem;
   transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
     color: #3b82f6;
-    background: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#27272a' : '#e4e4e7';
-    }};
+    background: var(--bg-tertiary);
   }
 `;
 
@@ -232,10 +204,7 @@ export const ProfileImage = styled.img`
   max-width: 400px;
   height: auto;
   border-radius: 2rem;
-  border: 4px solid ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#27272a' : '#e4e4e7';
-    }};
+  border: 4px solid var(--border-primary);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -250,10 +219,7 @@ export const ScrollIndicator = styled.div`
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  color: ${() => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return isDark ? '#52525b' : '#a1a1aa';
-    }};
+  color: var(--text-tertiary);
   cursor: pointer;
 
   @media (max-width: 767px) {
