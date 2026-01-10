@@ -1,39 +1,80 @@
-import { data } from '../../utils/projectList.ts'
-import { Image } from '../Image'
-import { Link } from '../Link'
-import * as S from './style'
+import { motion } from 'framer-motion';
+import { ExternalLink, Github } from 'lucide-react';
+import { projects } from '../../data/projects';
+import { fadeInUp, staggerContainer } from '../../animations/variants';
+import * as S from './style';
 
-
-export const ProjectList = () => {
-
+export const Projects = () => {
     return (
-        <S.ProjectList>
-            <h2>Projects</h2>
-            <ul className="projects">
-                {data.map((project) => {
-                    return (
-                        <li key={project.name} className="project">
-                            <div className="project-image">
-                                <Image src={project.image} alt={project.name} />
-                                <div className="project-links">
-                                    <Link href={project.deploy} aria-label="Project deploy link" title="Project deploy link" target="_blank"rel="noreferrer noopener">
-                                        Project
-                                    </Link>
-                                    <Link href={project.repository} aria-label="Link to the repository on Github" title="Link to the repository on Github" target="_blank" rel="noreferrer noopener">
-                                        Code
-                                    </Link>
-                                </div>
-                            </div>
-                            <span>{project.name}</span>
-                            <ul className="languages">
-                                {project.languages.map((language) => {
-                                    return <li key={language}>{language}</li>;
-                                })}
-                            </ul>
-                        </li>
-                    );
-                })}
-            </ul>
-        </S.ProjectList>
+        <S.ProjectsSection id="projects">
+            <S.Container
+                as={motion.div}
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, margin: "-100px" }}
+            >
+                <S.Header as={motion.div} variants={fadeInUp}>
+                    <S.SectionTitle>Projetos</S.SectionTitle>
+                    <S.SectionDescription>
+                        Alguns dos projetos que desenvolvi
+                    </S.SectionDescription>
+                </S.Header>
+
+                <S.ProjectsGrid>
+                    {projects.map((project, index) => (
+                        <S.ProjectCard
+                            key={project.id}
+                            as={motion.div}
+                            variants={fadeInUp}
+                            custom={index}
+                        >
+                            <S.ProjectImageWrapper>
+                                <S.ProjectImage src={project.image} alt={project.name} />
+                                <S.ProjectOverlay>
+                                    <S.ProjectLinks>
+                                        {project.liveUrl && (
+                                            <S.ProjectLink
+                                                href={project.liveUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                as={motion.a}
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 0.9 }}
+                                            >
+                                                <ExternalLink size={20} />
+                                                Demo
+                                            </S.ProjectLink>
+                                        )}
+                                        <S.ProjectLink
+                                            href={project.githubUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            as={motion.a}
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.9 }}
+                                        >
+                                            <Github size={20} />
+                                            Código
+                                        </S.ProjectLink>
+                                    </S.ProjectLinks>
+                                </S.ProjectOverlay>
+                            </S.ProjectImageWrapper>
+
+                            <S.ProjectContent>
+                                <S.ProjectTitle>{project.name}</S.ProjectTitle>
+                                <S.ProjectDescription>{project.description}</S.ProjectDescription>
+
+                                <S.TechStack>
+                                    {project.technologies.map((tech) => (
+                                        <S.TechTag key={tech}>{tech}</S.TechTag>
+                                    ))}
+                                </S.TechStack>
+                            </S.ProjectContent>
+                        </S.ProjectCard>
+                    ))}
+                </S.ProjectsGrid>
+            </S.Container>
+        </S.ProjectsSection>
     );
-}
+};
