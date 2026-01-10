@@ -4,15 +4,13 @@ export const personalInfo = {
     location: 'Brazil',
     email: 'pabloviana2010@gmail.com',
 
-    bio: 'Fullstack developer apaixonado por criar experiências web modernas e performáticas. Sempre em busca de aprender novas tecnologias e aplicar as melhores práticas de desenvolvimento.',
+    bio: 'Desenvolvedor fullstack especializado em criar experiências web modernas, performáticas e acessíveis. Focado em código limpo e melhores práticas de desenvolvimento.',
 
-    bioLong: `Sou um desenvolvedor fullstack altamente motivado e experiente, com paixão por criar experiências web envolventes e amigáveis ao usuário.
+    bioLong: `Desenvolvedor fullstack com experiência em React, Next.js, Node.js, TypeScript, Python. Apaixonado por criar aplicações web que priorizam performance, acessibilidade e experiência do usuário.
   
-    Com sólida experiência em React, Next.js, Node.js, TypeScript e tecnologias web modernas, busco constantemente aprender e aplicar as melhores práticas de desenvolvimento, focando em performance, acessibilidade e código limpo.
-    
-    Atualmente trabalho com desenvolvimento de aplicações web escaláveis, sempre priorizando a experiência do usuário e a qualidade do código.`,
+    Busco constantemente aprender novas tecnologias e aplicar as melhores práticas de desenvolvimento, mantendo o código limpo, bem documentado e de fácil manutenção.`,
 
-    tagline: "I'm a fullstack developer and love to learn new stuffs",
+    tagline: "Transformando ideias em experiências digitais excepcionais",
 
     social: {
         github: 'https://github.com/pablovianas',
@@ -22,9 +20,9 @@ export const personalInfo = {
     },
 
     highlights: [
-        'Fullstack development with React & Node.js',
-        'Focus on performance and accessibility',
-        'Experience with agile methodologies',
-        'Clean and well-documented code'
+        'Desenvolvimento fullstack com React & Node.js',
+        'Foco em performance e acessibilidade',
+        'Experiência com metodologias ágeis',
+        'Código limpo e bem documentado'
     ]
 };
