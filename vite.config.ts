@@ -14,10 +14,7 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-    minify: 'terser',
-    terserOptions: {
-      maxWorkers: 4,
-    },
+    minify: 'esbuild',
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'framer-motion', 'lucide-react', 'react-icons'],

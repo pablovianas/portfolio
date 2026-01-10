@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Heart, ArrowUp } from 'lucide-react';
 import { personalInfo } from '../../../data/personal';
-import { fadeInUp } from '../../../animations/variants';
 import * as S from './style';
 
 export const Footer = () => {
