@@ -11,7 +11,7 @@ export const Hero = () => {
     };
 
     return (
-        <S.HeroSection id="home">
+        <S.HeroSection id="about">
             <S.Container
                 as={motion.div}
                 variants={staggerContainer}

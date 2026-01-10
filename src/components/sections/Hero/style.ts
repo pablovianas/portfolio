@@ -178,10 +178,6 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  @media (max-width: 767px) {
-    order: -1;
-  }
 `;
 
 export const ImageGlow = styled.div`

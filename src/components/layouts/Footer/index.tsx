@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, ArrowUp, Coffee } from 'lucide-react';
 import { personalInfo } from '../../../data/personal';
 import * as S from './style';
 
@@ -11,7 +11,7 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <S.Footer>
+        <S.Footer id="contact">
             <S.Container>
                 <S.FooterContent>
                     <S.FooterTop
@@ -108,7 +108,7 @@ export const Footer = () => {
 
                     <S.FooterBottom>
                         <S.Copyright>
-                            © {currentYear} Pablo Viana. Feito com <Heart size={16} /> e muito café
+                            © {currentYear} Pablo Viana. Feito com <Heart size={16} /> e muito <Coffee size={16} />
                         </S.Copyright>
                         <S.BackToTop
                             onClick={scrollToTop}
