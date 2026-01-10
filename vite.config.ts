@@ -1,17 +1,25 @@
-import { defineConfig } from "vitest/config";
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react()],
-    resolve: {
-        alias: {
-            src: "/src",
+  plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'motion-vendor': ['framer-motion'],
+          'icons-vendor': ['lucide-react', 'react-icons'],
         },
+      },
     },
-    test: {
-        globals: true,
-        environment: "jsdom",
-        setupFiles: "./tests/setup.ts",
+    chunkSizeWarningLimit: 1000,
+    minify: 'terser',
+    terserOptions: {
+      maxWorkers: 4,
     },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'framer-motion', 'lucide-react', 'react-icons'],
+  },
 });

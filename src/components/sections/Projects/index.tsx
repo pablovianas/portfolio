@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import { projects } from '../../data/projects';
-import { fadeInUp, staggerContainer } from '../../animations/variants';
+import { projects } from '../../../data/projects';
+import { fadeInUp, staggerContainer } from '../../../animations/variants';
 import * as S from './style';
 
 export const Projects = () => {
@@ -30,7 +30,13 @@ export const Projects = () => {
                             custom={index}
                         >
                             <S.ProjectImageWrapper>
-                                <S.ProjectImage src={project.image} alt={project.name} />
+                                <S.ProjectImage
+                                    src={project.image}
+                                    alt={`Screenshot do projeto ${project.name}`}
+                                    loading="lazy"
+                                    width="400"
+                                    height="250"
+                                />
                                 <S.ProjectOverlay>
                                     <S.ProjectLinks>
                                         {project.liveUrl && (
@@ -41,8 +47,9 @@ export const Projects = () => {
                                                 as={motion.a}
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.9 }}
+                                                aria-label={`Ver demo do projeto ${project.name}`}
                                             >
-                                                <ExternalLink size={20} />
+                                                <ExternalLink size={20} aria-hidden="true" />
                                                 Demo
                                             </S.ProjectLink>
                                         )}
@@ -53,8 +60,9 @@ export const Projects = () => {
                                             as={motion.a}
                                             whileHover={{ scale: 1.1 }}
                                             whileTap={{ scale: 0.9 }}
+                                            aria-label={`Ver código do projeto ${project.name}`}
                                         >
-                                            <Github size={20} />
+                                            <Github size={20} aria-hidden="true" />
                                             Código
                                         </S.ProjectLink>
                                     </S.ProjectLinks>

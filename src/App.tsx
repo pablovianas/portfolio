@@ -1,21 +1,40 @@
-import { ThemeProvider } from './context'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { Projects } from './components/Projects'
-import { Skills } from './components/Skills'
+import { lazy, Suspense } from 'react';
+import { ThemeProvider } from './context';
+import { Header } from './components/layouts/Header';
+import { Hero } from './components/sections/Hero';
+
+const Skills = lazy(() => import('./components/sections/Skills').then(module => ({ default: module.Skills })));
+const Projects = lazy(() => import('./components/sections/Projects').then(module => ({ default: module.Projects })));
+const Footer = lazy(() => import('./components/layouts/Footer').then(module => ({ default: module.Footer })));
+
+const LoadingFallback = () => (
+    <div style={{
+        minHeight: '50vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'var(--text-secondary)'
+    }}>
+        Carregando...
+    </div>
+);
 
 function App() {
-
-  return (
-      <ThemeProvider>
-          <Header />
-          <Hero />
-          <Skills />
-          <Projects />
-          <Footer />
-      </ThemeProvider>
-  );
+    return (
+        <ThemeProvider>
+            <Header />
+            <Hero />
+            <Suspense fallback={<LoadingFallback />}>
+                <Skills />
+            </Suspense>
+            <Suspense fallback={<LoadingFallback />}>
+                <Projects />
+            </Suspense>
+            <Suspense fallback={<LoadingFallback />}>
+                <Footer />
+            </Suspense>
+        </ThemeProvider>
+    );
 }
 
-export default App
+export default App;

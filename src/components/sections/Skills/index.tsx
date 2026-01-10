@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { skills, skillCategories, getAllCategories } from '../../data/skills';
-import { fadeInUp, staggerContainer } from '../../animations/variants';
+import { skills, skillCategories, getAllCategories } from '../../../data/skills';
+import { fadeInUp, staggerContainer } from '../../../animations/variants';
 import * as S from './style';
 
 export const Skills = () => {

@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
-import { personalInfo } from '../../data/personal';
-import { fadeInUp, staggerContainer } from '../../animations/variants';
+import { personalInfo } from '../../../data/personal';
+import { fadeInUp, staggerContainer } from '../../../animations/variants';
 import * as S from './style';
-import profilePicture from '../../assets/profile-pic.jpeg';
+import profilePicture from '../../../assets/profile-pic.jpeg';
 
 export const Hero = () => {
     const scrollToProjects = () => {
@@ -36,8 +36,9 @@ export const Hero = () => {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
+                                aria-label="Conectar no LinkedIn"
                             >
-                                <Linkedin size={20} />
+                                <Linkedin size={20} aria-hidden="true" />
                                 Vamos conversar
                             </S.PrimaryButton>
 
@@ -46,9 +47,10 @@ export const Hero = () => {
                                 onClick={scrollToProjects}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
+                                aria-label="Ver projetos"
                             >
                                 Ver projetos
-                                <ArrowDown size={20} />
+                                <ArrowDown size={20} aria-hidden="true" />
                             </S.SecondaryButton>
                         </S.CTAGroup>
 
@@ -59,8 +61,9 @@ export const Hero = () => {
                                 rel="noopener noreferrer"
                                 as={motion.a}
                                 whileHover={{ y: -4 }}
+                                aria-label="GitHub"
                             >
-                                <Github size={24} />
+                                <Github size={24} aria-hidden="true" />
                             </S.SocialLink>
                             <S.SocialLink
                                 href={personalInfo.social.linkedin}
@@ -68,15 +71,17 @@ export const Hero = () => {
                                 rel="noopener noreferrer"
                                 as={motion.a}
                                 whileHover={{ y: -4 }}
+                                aria-label="LinkedIn"
                             >
-                                <Linkedin size={24} />
+                                <Linkedin size={24} aria-hidden="true" />
                             </S.SocialLink>
                             <S.SocialLink
                                 href={personalInfo.social.email}
                                 as={motion.a}
                                 whileHover={{ y: -4 }}
+                                aria-label="Email"
                             >
-                                <Mail size={24} />
+                                <Mail size={24} aria-hidden="true" />
                             </S.SocialLink>
                         </S.SocialLinks>
                     </S.TextContent>
@@ -85,10 +90,13 @@ export const Hero = () => {
                         as={motion.div}
                         variants={fadeInUp}
                     >
-                        <S.ImageGlow />
+                        <S.ImageGlow aria-hidden="true" />
                         <S.ProfileImage
                             src={profilePicture}
-                            alt={personalInfo.name}
+                            alt={`Foto de perfil de ${personalInfo.name}`}
+                            loading="eager"
+                            width="400"
+                            height="400"
                         />
                     </S.ImageWrapper>
                 </S.Content>
@@ -97,6 +105,7 @@ export const Hero = () => {
                     as={motion.div}
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
+                    aria-hidden="true"
                 >
                     <ArrowDown size={24} />
                 </S.ScrollIndicator>
