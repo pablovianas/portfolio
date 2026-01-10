@@ -1,20 +1,33 @@
-import { createContext, useState} from 'react'
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import { themes } from 'src/styles'
-import { SelectedTheme, Theme, ThemeContextProps, ThemeProviderProps } from 'src/types/context';
+import { createContext, useContext, ReactNode } from 'react';
+import { useTheme } from '../hooks/useTheme';
+import { GlobalStyle } from '../styles/globalStyle';
 
-export const ThemeContext = createContext({} as ThemeContextProps);
-
-export const ThemeProvider = ({children}:ThemeProviderProps) => {
-    const [theme, setTheme] = useState<Theme>(themes.light)
-    const handleThemeChange = (selectedTheme: string) => {
-        if(selectedTheme === "") return
-        const newTheme = selectedTheme as SelectedTheme
-        setTheme(themes[newTheme] as Theme);
-    };
-    return (
-        <ThemeContext.Provider value={{handleThemeChange}}>
-            <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
-        </ThemeContext.Provider>
-    )
+interface ThemeContextProps {
+  isDark: boolean;
+  toggleTheme: () => void;
 }
+
+const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+
+export const useThemeContext = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useThemeContext must be used within ThemeProvider');
+  }
+  return context;
+};
+
+interface ThemeProviderProps {
+  children: ReactNode;
+}
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  const { isDark, toggleTheme } = useTheme();
+
+  return (
+    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+      <GlobalStyle $isDark={isDark} />
+      {children}
+    </ThemeContext.Provider>
+  );
+};

@@ -1,67 +1,190 @@
-import { styled } from "styled-components";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Header = styled("header")`
+export const Header = styled.header<{ $isScrolled: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  
+  ${({ $isScrolled }) => $isScrolled && `
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: ${document.documentElement.getAttribute('data-theme') === 'dark' 
+      ? 'rgba(10, 10, 10, 0.8)' 
+      : 'rgba(255, 255, 255, 0.8)'};
+    border-bottom: 1px solid ${document.documentElement.getAttribute('data-theme') === 'dark'
+      ? '#27272a'
+      : '#e4e4e7'};
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  `}
+`;
+
+export const Container = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  @media (min-width: 1024px) {
+    padding: 1.5rem 3rem;
+  }
+`;
+
+export const Logo = styled(motion.button)`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: ${() => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return isDark ? '#e4e4e7' : '#18181b';
+  }};
+
+  .accent {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+`;
+
+export const Nav = styled.nav<{ $isOpen: boolean }>`
+  @media (max-width: 1023px) {
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    background: ${() => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return isDark ? '#0a0a0a' : '#ffffff';
+    }};
+    border-bottom: 1px solid ${() => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return isDark ? '#27272a' : '#e4e4e7';
+    }};
+    padding: 2rem 1.5rem;
+    transform: ${({ $isOpen }) => $isOpen ? 'translateY(0)' : 'translateY(-100%)'};
+    opacity: ${({ $isOpen }) => $isOpen ? '1' : '0'};
+    visibility: ${({ $isOpen }) => $isOpen ? 'visible' : 'hidden'};
+    transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+`;
+
+export const NavList = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+`;
+
+export const NavLink = styled.button`
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: ${() => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return isDark ? '#a1a1aa' : '#52525b';
+  }};
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  transition: color 150ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    transition: width 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
+    color: ${() => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return isDark ? '#e4e4e7' : '#18181b';
+    }};
+
+    &::after {
+      width: 100%;
+    }
+  }
+`;
+
+export const Actions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const SocialLinks = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
+`;
+
+export const SocialLink = styled(motion.a)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: ${() => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return isDark ? '#a1a1aa' : '#52525b';
+  }};
+  transition: color 150ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &:hover {
+    color: ${() => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return isDark ? '#3b82f6' : '#2563eb';
+    }};
+  }
+`;
+
+export const MobileMenuButton = styled(motion.button)`
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: ${() => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return isDark ? '#e4e4e7' : '#18181b';
+  }};
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @media (max-width: 1023px) {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px;
-
-    span {
-        font-size: 32px;
-        font-family: "Space Grotesk";
-        font-weight: 700;
-        letter-spacing: -0.444px;
-
-        &:hover {
-            color: ${({ theme }) => theme.link};
-            cursor: pointer;
-        }
-    }
-    a {
-        color: ${({ theme }) => theme.accent};
-        &:hover {
-            color: ${({ theme }) => theme.link};
-            cursor: pointer;
-        }
-    }
-    ul {
-        display: flex;
-
-        gap: 10px;
-    }
-    svg {
-        font-size: 35px;
-    }
-
-    button {
-        background: #fff;
-        border: none;
-        padding: 10px;
-        font-family: "Space Grotesk";
-        font-size: 20px;
-        border-radius: 10px;
-    }
-    select {
-        border: none;
-        padding: 10px;
-        border-radius: 10px;
-        cursor: pointer;
-        background-color: ${({ theme }) => theme.secondaryBackground};
-        color: ${({ theme }) => theme.accent};
-        font-size: 20px;
-        &:focus {
-            outline: none;
-        }
-
-    }
-
-    @media (width <= 430px) {
-        flex-direction: column;
-        gap: 20px;
-        ul {
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-        }
-    }
+  }
 `;
