@@ -68,3 +68,19 @@ cd portfolio
 npm install
 # ou
 yarn install
+```
+
+## 🎨 Funcionalidades
+## Seções
+- Hero: Apresentação pessoal com links sociais
+- Skills: Tecnologias organizadas por categoria
+- Projects: Projetos em destaque com links e tecnologias
+- Footer: Informações de contato e redes sociais
+
+## Recursos Técnicos
+Lazy Loading: Carregamento otimizado de componentes
+Intersection Observer: Animações ao scroll
+Theme Context: Gerenciamento de tema global
+Responsive Design: Mobile-first approach
+Type Safety: TypeScript em todo o projeto
+Component Testing: Testes com Vitest e Testing Library

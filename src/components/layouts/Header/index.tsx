@@ -46,11 +46,6 @@ export const Header = () => {
                             </S.NavLink>
                         </li>
                         <li>
-                            <S.NavLink onClick={() => scrollToSection('about')}>
-                                About
-                            </S.NavLink>
-                        </li>
-                        <li>
                             <S.NavLink onClick={() => scrollToSection('skills')}>
                                 Skills
                             </S.NavLink>
