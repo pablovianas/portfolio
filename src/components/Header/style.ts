@@ -48,7 +48,7 @@ export const Logo = styled(motion.button)`
   border: none;
   color: ${() => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? '#e4e4e7' : '#18181b';
+    return isDark ? '#e4e4e7' : '#52525b';
   }};
 
   .accent {
@@ -120,7 +120,7 @@ export const NavLink = styled.button`
   &:hover {
     color: ${() => {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      return isDark ? '#e4e4e7' : '#18181b';
+      return isDark ? '#ffffff' : '#9494a3';
     }};
 
     &::after {
@@ -178,7 +178,7 @@ export const MobileMenuButton = styled(motion.button)`
   height: 2.5rem;
   color: ${() => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    return isDark ? '#e4e4e7' : '#18181b';
+    return isDark ? '#e4e4e7' : '#9494a3';
   }};
   background: none;
   border: none;
