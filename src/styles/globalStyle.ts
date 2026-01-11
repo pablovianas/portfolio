@@ -1,6 +1,23 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle<{ $isDark: boolean }>`
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    font-synthesis: none;
+    src: url('/fonts/Inter-VariableFont_opsz,wght.woff2') format('woff2');
+  }
+    @font-face {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    font-synthesis: none;
+    src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -13,6 +30,9 @@ export const GlobalStyle = createGlobalStyle<{ $isDark: boolean }>`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 32;
+    letter-spacing: 1.2px;
     
     color-scheme: ${({ $isDark }) => ($isDark ? "dark" : "light")};
   }

@@ -43,9 +43,6 @@ export const theme = {
     },
 
     fonts: {
-        body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        heading:
-            "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
         mono: "'JetBrains Mono', 'Courier New', monospace",
     },
 
