@@ -37,13 +37,15 @@ function App() {
     return (
         <ThemeProvider>
             <Header />
-            <Hero />
-            <Suspense fallback={<LoadingFallback />}>
-                <Skills />
-            </Suspense>
-            <Suspense fallback={<LoadingFallback />}>
-                <Projects />
-            </Suspense>
+            <main id="main-content">
+                <Hero />
+                <Suspense fallback={<LoadingFallback />}>
+                    <Skills />
+                </Suspense>
+                <Suspense fallback={<LoadingFallback />}>
+                    <Projects />
+                </Suspense>
+            </main>
             <Suspense fallback={<LoadingFallback />}>
                 <Footer />
             </Suspense>

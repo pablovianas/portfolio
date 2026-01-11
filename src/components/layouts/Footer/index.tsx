@@ -37,7 +37,7 @@ export const Footer = () => {
                                 </S.FooterSectionTitle>
                                 <S.FooterLinkList>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink
+                                        <S.FooterButton
                                             onClick={() =>
                                                 document
                                                     .getElementById("home")
@@ -47,10 +47,10 @@ export const Footer = () => {
                                             }
                                         >
                                             Início
-                                        </S.FooterLink>
+                                        </S.FooterButton>
                                     </S.FooterLinkItem>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink
+                                        <S.FooterButton
                                             onClick={() =>
                                                 document
                                                     .getElementById("skills")
@@ -60,10 +60,10 @@ export const Footer = () => {
                                             }
                                         >
                                             Skills
-                                        </S.FooterLink>
+                                        </S.FooterButton>
                                     </S.FooterLinkItem>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink
+                                        <S.FooterButton
                                             onClick={() =>
                                                 document
                                                     .getElementById("projects")
@@ -73,7 +73,7 @@ export const Footer = () => {
                                             }
                                         >
                                             Projetos
-                                        </S.FooterLink>
+                                        </S.FooterButton>
                                     </S.FooterLinkItem>
                                 </S.FooterLinkList>
                             </S.FooterSection>
@@ -86,6 +86,8 @@ export const Footer = () => {
                                     <S.FooterLinkItem>
                                         <S.FooterLink
                                             href={personalInfo.social.email}
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
                                         >
                                             Email
                                         </S.FooterLink>

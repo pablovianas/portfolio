@@ -3,7 +3,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { personalInfo } from "../../../data/personal";
 import { fadeInUp, staggerContainer } from "../../../animations/variants";
 import * as S from "./style";
-import profilePicture from "../../../assets/profile-pic.jpeg";
+import profilePicture from "../../../assets/profile-pic.webp";
 
 export const Hero = () => {
     const scrollToProjects = () => {
