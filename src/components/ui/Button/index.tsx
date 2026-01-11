@@ -92,7 +92,7 @@ export const Button = styled(motion.button)<ButtonProps>`
   }
   
   &:focus-visible {
-    outline: 2px solid ${({ }) => {
+    outline: 2px solid ${() => {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
       return isDark ? '#3b82f6' : '#2563eb';
     }};

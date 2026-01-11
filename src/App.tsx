@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { ThemeProvider } from './context';
+import { ThemeProvider } from './context/theme-provider';
 import { Header } from './components/layouts/Header';
 import { Hero } from './components/sections/Hero';
 

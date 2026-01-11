@@ -1,21 +1,7 @@
-import { createContext, useContext, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { useTheme } from '../hooks/useTheme';
 import { GlobalStyle } from '../styles/globalStyle';
-
-interface ThemeContextProps {
-  isDark: boolean;
-  toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
-
-export const useThemeContext = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useThemeContext must be used within ThemeProvider');
-  }
-  return context;
-};
+import { ThemeContext } from './theme-context'
 
 interface ThemeProviderProps {
   children: ReactNode;

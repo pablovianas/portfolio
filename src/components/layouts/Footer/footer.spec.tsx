@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
-import { screen, fireEvent, render } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import { Footer } from '.';
+import { render, setupScrollMock } from '../../../tests/test-utils';
 
 describe('Footer', () => {
     it('should render successfully', () => {
@@ -122,10 +123,7 @@ describe('Footer', () => {
     });
 
     it('should scroll to section when navigation link is clicked', () => {
-        const mockScrollIntoView = vi.fn();
-        const mockGetElementById = vi.spyOn(document, 'getElementById').mockReturnValue({
-            scrollIntoView: mockScrollIntoView
-        } as any);
+        const { mockGetElementById, mockScrollIntoView } = setupScrollMock();
 
         render(<Footer />);
 

@@ -1,31 +1,25 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { screen, fireEvent } from '@testing-library/react';
 import { Hero } from '.';
-import { render } from '../../../tests/test-utils'
+import { render, setupScrollMock,  } from '../../../tests/test-utils'
 
 describe('Hero', () => {
     it('should render hero section with personal info', () => {
-        render(
-            <Hero />
-        );
+        render(<Hero />);
 
         expect(screen.getByText('Olá, eu sou')).toBeInTheDocument();
         expect(screen.getByText('Pablo Viana')).toBeInTheDocument();
     });
 
     it('should render CTA buttons', () => {
-        render(
-            <Hero />
-        );
+        render(<Hero />);
 
         expect(screen.getByText('Vamos conversar')).toBeInTheDocument();
         expect(screen.getByText('Ver projetos')).toBeInTheDocument();
     });
 
     it('should render social links', () => {
-        render(
-            <Hero />
-        );
+        render(<Hero />);
 
         const socialLinks = screen.getAllByRole('link');
         expect(socialLinks.length).toBeGreaterThan(0);
@@ -36,9 +30,7 @@ describe('Hero', () => {
     });
 
     it('should render profile image with correct attributes', () => {
-        render(
-            <Hero />
-        );
+        render(<Hero />);
 
         const image = screen.getByAltText(/Foto de perfil de/);
         expect(image).toBeInTheDocument();
@@ -48,14 +40,9 @@ describe('Hero', () => {
     });
 
     it('should scroll to projects when button is clicked', () => {
-        const mockScrollIntoView = vi.fn();
-        const mockGetElementById = vi.spyOn(document, 'getElementById').mockReturnValue({
-            scrollIntoView: mockScrollIntoView
-        } as any);
-
-        render(
-            <Hero />
-        );
+        const { mockGetElementById, mockScrollIntoView } = setupScrollMock();
+        
+        render(<Hero />);
 
         const projectsButton = screen.getByText('Ver projetos');
         fireEvent.click(projectsButton);
@@ -67,9 +54,7 @@ describe('Hero', () => {
     });
 
     it('should have correct accessibility attributes', () => {
-        render(
-            <Hero />
-        );
+        render(<Hero />);
 
         const linkedinButton = screen.getByLabelText('Conectar no LinkedIn');
         const projectsButton = screen.getByLabelText('Ver projetos');

@@ -1,10 +1,11 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { screen, fireEvent, waitFor } from '@testing-library/react';
-import { render } from '../../../tests/test-utils'
+import { render, setupScrollMock} from '../../../tests/test-utils'
 import { Header } from './index';
 import { ThemeToggle } from '../../../components/features/ThemeToggle'
 
 describe('Header', () => {
+
     beforeEach(() => {
         window.scrollY = 0;
     });
@@ -77,10 +78,7 @@ describe('Header', () => {
     });
 
     it('should scroll to section when navigation link is clicked', () => {
-        const mockScrollIntoView = vi.fn();
-        const mockGetElementById = vi.spyOn(document, 'getElementById').mockReturnValue({
-            scrollIntoView: mockScrollIntoView
-        } as any);
+        const { mockGetElementById, mockScrollIntoView } = setupScrollMock();
 
         render(<Header />);
 
@@ -94,10 +92,7 @@ describe('Header', () => {
     });
 
     it('should scroll to section when logo is clicked', () => {
-        const mockScrollIntoView = vi.fn();
-        const mockGetElementById = vi.spyOn(document, 'getElementById').mockReturnValue({
-            scrollIntoView: mockScrollIntoView
-        } as any);
+        const { mockGetElementById, mockScrollIntoView } = setupScrollMock();
 
         render(<Header />);
 
@@ -112,11 +107,8 @@ describe('Header', () => {
     });
 
     it('should close mobile menu when navigation link is clicked', () => {
-        const mockScrollIntoView = vi.fn();
-        const mockGetElementById = vi.spyOn(document, 'getElementById').mockReturnValue({
-            scrollIntoView: mockScrollIntoView
-        } as any);
-
+        const { mockGetElementById } = setupScrollMock();
+        
         render(<Header />);
 
         const menuButton = screen.getByLabelText('Toggle mobile menu');
@@ -183,7 +175,9 @@ describe('Header', () => {
     });
 
     it('should not scroll to section if element does not exist', () => {
-        const mockGetElementById = vi.spyOn(document, 'getElementById').mockReturnValue(null);
+        const { mockGetElementById } = setupScrollMock();
+        
+        mockGetElementById.mockReturnValueOnce(null);
 
         render(<Header />);
 

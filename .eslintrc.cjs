@@ -8,6 +8,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,4 +25,12 @@ module.exports = {
     ],
     '@typescript-eslint/no-non-null-assertion': 'off',
   },
+  overrides: [
+      {
+          files: ['**/*.test.ts', '**/*.spec.ts', '**/test-utils.tsx'],
+          rules: {
+              'react-refresh/only-export-components': 'off',
+          },
+      },
+  ]
 }
