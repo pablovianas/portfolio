@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
-import { projects } from '../../../data/projects';
-import { fadeInUp, staggerContainer } from '../../../animations/variants';
-import * as S from './style';
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
+import { projects } from "../../../data/projects";
+import { fadeInUp, staggerContainer } from "../../../animations/variants";
+import * as S from "./style";
 
 export const Projects = () => {
     return (
@@ -49,7 +49,10 @@ export const Projects = () => {
                                                 whileTap={{ scale: 0.9 }}
                                                 aria-label={`Ver demo do projeto ${project.name}`}
                                             >
-                                                <ExternalLink size={20} aria-hidden="true" />
+                                                <ExternalLink
+                                                    size={20}
+                                                    aria-hidden="true"
+                                                />
                                                 Demo
                                             </S.ProjectLink>
                                         )}
@@ -62,7 +65,10 @@ export const Projects = () => {
                                             whileTap={{ scale: 0.9 }}
                                             aria-label={`Ver código do projeto ${project.name}`}
                                         >
-                                            <Github size={20} aria-hidden="true" />
+                                            <Github
+                                                size={20}
+                                                aria-hidden="true"
+                                            />
                                             Código
                                         </S.ProjectLink>
                                     </S.ProjectLinks>
@@ -71,7 +77,9 @@ export const Projects = () => {
 
                             <S.ProjectContent>
                                 <S.ProjectTitle>{project.name}</S.ProjectTitle>
-                                <S.ProjectDescription>{project.description}</S.ProjectDescription>
+                                <S.ProjectDescription>
+                                    {project.description}
+                                </S.ProjectDescription>
 
                                 <S.TechStack>
                                     {project.technologies.map((tech) => (

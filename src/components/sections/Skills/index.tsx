@@ -1,7 +1,11 @@
-import { motion } from 'framer-motion';
-import { skills, skillCategories, getAllCategories } from '../../../data/skills';
-import { fadeInUp, staggerContainer } from '../../../animations/variants';
-import * as S from './style';
+import { motion } from "framer-motion";
+import {
+    skills,
+    skillCategories,
+    getAllCategories,
+} from "../../../data/skills";
+import { fadeInUp, staggerContainer } from "../../../animations/variants";
+import * as S from "./style";
 
 export const Skills = () => {
     const categories = getAllCategories();
@@ -21,11 +25,15 @@ export const Skills = () => {
 
                 <S.CategoriesWrapper>
                     {categories.map((category) => {
-                        const categorySkills = skills.filter(s => s.category === category);
+                        const categorySkills = skills.filter(
+                            (s) => s.category === category,
+                        );
 
                         return (
                             <S.CategorySection key={category}>
-                                <S.CategoryTitle>{skillCategories[category]}</S.CategoryTitle>
+                                <S.CategoryTitle>
+                                    {skillCategories[category]}
+                                </S.CategoryTitle>
                                 <S.SkillsGrid>
                                     {categorySkills.map((skill, index) => (
                                         <S.SkillCard
@@ -39,7 +47,9 @@ export const Skills = () => {
                                             <S.SkillIcon>
                                                 <skill.icon />
                                             </S.SkillIcon>
-                                            <S.SkillName>{skill.name}</S.SkillName>
+                                            <S.SkillName>
+                                                {skill.name}
+                                            </S.SkillName>
                                         </S.SkillCard>
                                     ))}
                                 </S.SkillsGrid>

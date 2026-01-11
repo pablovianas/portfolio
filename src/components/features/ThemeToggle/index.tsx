@@ -1,6 +1,6 @@
-import { Moon, Sun } from 'lucide-react';
-import * as S from './style';
-import { useThemeContext } from '../../../context/theme-context';
+import { Moon, Sun } from "lucide-react";
+import * as S from "./style";
+import { useThemeContext } from "../../../context/theme-context";
 
 export const ThemeToggle = () => {
     const { isDark, toggleTheme } = useThemeContext();
@@ -8,8 +8,8 @@ export const ThemeToggle = () => {
     return (
         <S.ToggleButton
             onClick={toggleTheme}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
         >

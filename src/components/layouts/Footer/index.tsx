@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart, ArrowUp, Coffee } from 'lucide-react';
-import { personalInfo } from '../../../data/personal';
-import * as S from './style';
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Heart, ArrowUp, Coffee } from "lucide-react";
+import { personalInfo } from "../../../data/personal";
+import * as S from "./style";
 
 export const Footer = () => {
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const currentYear = new Date().getFullYear();
@@ -25,25 +25,53 @@ export const Footer = () => {
                             <S.BrandName>
                                 Pablo<span className="accent">.</span>
                             </S.BrandName>
-                            <S.BrandTagline>{personalInfo.tagline}</S.BrandTagline>
+                            <S.BrandTagline>
+                                {personalInfo.tagline}
+                            </S.BrandTagline>
                         </S.FooterBrand>
 
                         <S.FooterLinks>
                             <S.FooterSection>
-                                <S.FooterSectionTitle>Navegação</S.FooterSectionTitle>
+                                <S.FooterSectionTitle>
+                                    Navegação
+                                </S.FooterSectionTitle>
                                 <S.FooterLinkList>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}>
+                                        <S.FooterLink
+                                            onClick={() =>
+                                                document
+                                                    .getElementById("home")
+                                                    ?.scrollIntoView({
+                                                        behavior: "smooth",
+                                                    })
+                                            }
+                                        >
                                             Início
                                         </S.FooterLink>
                                     </S.FooterLinkItem>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}>
+                                        <S.FooterLink
+                                            onClick={() =>
+                                                document
+                                                    .getElementById("skills")
+                                                    ?.scrollIntoView({
+                                                        behavior: "smooth",
+                                                    })
+                                            }
+                                        >
                                             Skills
                                         </S.FooterLink>
                                     </S.FooterLinkItem>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
+                                        <S.FooterLink
+                                            onClick={() =>
+                                                document
+                                                    .getElementById("projects")
+                                                    ?.scrollIntoView({
+                                                        behavior: "smooth",
+                                                    })
+                                            }
+                                        >
                                             Projetos
                                         </S.FooterLink>
                                     </S.FooterLinkItem>
@@ -51,20 +79,32 @@ export const Footer = () => {
                             </S.FooterSection>
 
                             <S.FooterSection>
-                                <S.FooterSectionTitle>Contato</S.FooterSectionTitle>
+                                <S.FooterSectionTitle>
+                                    Contato
+                                </S.FooterSectionTitle>
                                 <S.FooterLinkList>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink href={personalInfo.social.email}>
+                                        <S.FooterLink
+                                            href={personalInfo.social.email}
+                                        >
                                             Email
                                         </S.FooterLink>
                                     </S.FooterLinkItem>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer">
+                                        <S.FooterLink
+                                            href={personalInfo.social.linkedin}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
                                             LinkedIn
                                         </S.FooterLink>
                                     </S.FooterLinkItem>
                                     <S.FooterLinkItem>
-                                        <S.FooterLink href={personalInfo.social.github} target="_blank" rel="noopener noreferrer">
+                                        <S.FooterLink
+                                            href={personalInfo.social.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
                                             GitHub
                                         </S.FooterLink>
                                     </S.FooterLinkItem>
@@ -108,7 +148,8 @@ export const Footer = () => {
 
                     <S.FooterBottom>
                         <S.Copyright>
-                            © {currentYear} Pablo Viana. Feito com <Heart size={16} /> e muito <Coffee size={16} />
+                            © {currentYear} Pablo Viana. Feito com{" "}
+                            <Heart size={16} /> e muito <Coffee size={16} />
                         </S.Copyright>
                         <S.BackToTop
                             onClick={scrollToTop}

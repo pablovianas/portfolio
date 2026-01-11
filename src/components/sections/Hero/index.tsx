@@ -1,13 +1,15 @@
-import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
-import { personalInfo } from '../../../data/personal';
-import { fadeInUp, staggerContainer } from '../../../animations/variants';
-import * as S from './style';
-import profilePicture from '../../../assets/profile-pic.jpeg';
+import { motion } from "framer-motion";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { personalInfo } from "../../../data/personal";
+import { fadeInUp, staggerContainer } from "../../../animations/variants";
+import * as S from "./style";
+import profilePicture from "../../../assets/profile-pic.jpeg";
 
 export const Hero = () => {
     const scrollToProjects = () => {
-        document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+        document
+            .getElementById("projects")
+            ?.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
@@ -19,10 +21,7 @@ export const Hero = () => {
                 animate="animate"
             >
                 <S.Content>
-                    <S.TextContent
-                        as={motion.div}
-                        variants={fadeInUp}
-                    >
+                    <S.TextContent as={motion.div} variants={fadeInUp}>
                         <S.Greeting>Olá, eu sou</S.Greeting>
                         <S.Name>{personalInfo.name}</S.Name>
                         <S.Role>{personalInfo.role}</S.Role>
@@ -86,10 +85,7 @@ export const Hero = () => {
                         </S.SocialLinks>
                     </S.TextContent>
 
-                    <S.ImageWrapper
-                        as={motion.div}
-                        variants={fadeInUp}
-                    >
+                    <S.ImageWrapper as={motion.div} variants={fadeInUp}>
                         <S.ImageGlow aria-hidden="true" />
                         <S.ProfileImage
                             src={profilePicture}

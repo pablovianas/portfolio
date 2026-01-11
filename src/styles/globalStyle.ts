@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle<{ $isDark: boolean }>`
   * {
@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle<{ $isDark: boolean }>`
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     
-    color-scheme: ${({ $isDark }) => ($isDark ? 'dark' : 'light')};
+    color-scheme: ${({ $isDark }) => ($isDark ? "dark" : "light")};
   }
 
   html {

@@ -1,10 +1,10 @@
-import projectLoopStudio from '../assets/project-loopstudios.png'
-import projectTodoList from '../assets/project-todo-app.png'
-import projectAdviceSlip from '../assets/project-advice-slip.png'
-import projectDevFinances from '../assets/project-dev-finances.png'
-import projectPokedex from '../assets/project-pokedex.png'
-import projectMiniPortfolio from '../assets/project-mini-portfolio.png'
-import projectGithubApi from '../assets/project-github-api.png'
+import projectLoopStudio from "../assets/project-loopstudios.png";
+import projectTodoList from "../assets/project-todo-app.png";
+import projectAdviceSlip from "../assets/project-advice-slip.png";
+import projectDevFinances from "../assets/project-dev-finances.png";
+import projectPokedex from "../assets/project-pokedex.png";
+import projectMiniPortfolio from "../assets/project-mini-portfolio.png";
+import projectGithubApi from "../assets/project-github-api.png";
 
 export type dataType = {
     name: string;
@@ -12,7 +12,7 @@ export type dataType = {
     image: string;
     deploy: string;
     repository: string;
-}[]
+}[];
 
 export const data: dataType = [
     {
