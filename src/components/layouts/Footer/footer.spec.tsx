@@ -59,7 +59,7 @@ describe("Footer", () => {
         const links = screen.getAllByRole("link");
         const emailLink = links.find(
             (link) =>
-                link.getAttribute("href") === "mailto:pabloviana2010@gmail.com",
+                link.getAttribute("href") === "mailto:pabloviana2010@gmail.comm",
         );
         const linkedinLink = links.find(
             (link) =>

@@ -86,7 +86,7 @@ export const Footer = () => {
                                     <S.FooterLinkItem>
                                         <S.FooterLink
                                             href={personalInfo.social.email}
-                                            target="_blank" 
+                                            target="_blank"
                                             rel="noopener noreferrer"
                                         >
                                             Email

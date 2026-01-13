@@ -1,16 +1,16 @@
 import styled, { css } from "styled-components";
 
 const footerLinkStyles = css`
-  font-family: "Inter", sans-serif;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: "Inter", sans-serif;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 150ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  &:hover {
-    color: #3b82f6;
-  }
+    &:hover {
+        color: #3b82f6;
+    }
 `;
 
 export const Footer = styled.footer`
@@ -121,13 +121,12 @@ export const FooterLinkList = styled.ul`
 
 export const FooterLinkItem = styled.li``;
 
-
 export const FooterButton = styled.button`
-  ${footerLinkStyles}
+    ${footerLinkStyles}
 `;
 
 export const FooterLink = styled.a`
-  ${footerLinkStyles}
+    ${footerLinkStyles}
 `;
 
 export const SocialLinks = styled.div`
